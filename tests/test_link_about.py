@@ -8,21 +8,14 @@ from pages.client_info_page import Client_info_page
 from pages.payment_page import Payment_page
 from pages.finish_page import Finish_page
 
-def test_buy_product():
+
+def test_link_about():
     browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
     page = Login_page(browser)
     page.authorization()
     mpage = Main_page(browser)
-    mpage.add_product_1()
-    cpage = Cart_page(browser)
-    cpage.product_confirm()
-    cipage = Client_info_page(browser)
-    cipage.input_client_info()
-    ppage = Payment_page(browser)
-    ppage.payment()
-    fpage = Finish_page(browser)
-    fpage.finish('test_buy_product')
+    mpage.select_menu_about()
 
 
     browser.quit()
