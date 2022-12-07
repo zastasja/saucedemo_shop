@@ -1,7 +1,9 @@
+import pytest
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from base.base_class import Base
+
 
 class Login_page(Base):
 
@@ -30,7 +32,7 @@ class Login_page(Base):
     def get_product_word(self):
         return WebDriverWait(self.browser, 30).until(EC.element_to_be_clickable((By.XPATH, self.product_word)))
 
-    #Actions
+    # Actions
 
     def input_username(self, username):
         self.get_username().send_keys(username)
@@ -44,11 +46,12 @@ class Login_page(Base):
         self.get_login_btn().click()
         print('click login button')
 
-    def authorization(self):
+
+    def authorization(self, login_user, login_password):
         self.browser.get(self.base_url)
         self.browser.maximize_window()
         self.get_current_url()
-        self.input_username('standard_user')
-        self.input_password('secret_sauce')
+        self.input_username(login_user)
+        self.input_password(login_password)
         self.click_lgn_btn()
         self.assert_word(self.get_product_word(), 'PRODUCTS')
