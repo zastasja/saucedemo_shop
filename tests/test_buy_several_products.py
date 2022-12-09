@@ -8,8 +8,7 @@ from pages.payment_page import Payment_page
 from pages.finish_page import Finish_page
 
 @pytest.mark.parametrize("login_user, login_password",
-                         [('standard_user', 'secret_sauce'), ('problem_user', 'secret_sauce'),
-                          ('performance_glitch_user', 'secret_sauce')])
+                         [('standard_user', 'secret_sauce')])
 @allure.description("add product 1 to the cart")
 @pytest.mark.run(order=2)
 def test_buy_product_1(browser, login_user, login_password):

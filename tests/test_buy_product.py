@@ -9,8 +9,7 @@ from pages.finish_page import Finish_page
 import allure
 
 @pytest.mark.parametrize("login_user, login_password",
-                         [('standard_user', 'secret_sauce'), ('problem_user', 'secret_sauce'),
-                          ('performance_glitch_user', 'secret_sauce')])
+                         [('standard_user', 'secret_sauce')])
 @allure.description("test full product purchase process")
 def test_buy_product(browser, login_user, login_password):
     page = Login_page(browser)
